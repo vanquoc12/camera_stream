@@ -28,7 +28,7 @@
     <p>Streaming from: <span id="stream-url"></span></p>
 
     <!-- Video Stream -->
-    <img id="cameraStream" src="" alt="Camera Stream" />
+    <img id="cameraStream" src="" alt="Camera Stream" onerror="handleError()" />
 
     <script>
         // Thay thế bằng link Ngrok của bạn
@@ -36,6 +36,10 @@
 
         document.getElementById("stream-url").innerText = streamURL;
         document.getElementById("cameraStream").src = streamURL + "/stream";
+
+        function handleError() {
+            alert("Không thể tải video stream! Kiểm tra lại link hoặc ESP32-CAM.");
+        }
     </script>
 </body>
 </html>
